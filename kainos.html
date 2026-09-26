@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kainos - Adentis Kinezoterapijos Namai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #131b2e;
+            --bg-card-hover: #1c2742;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --accent-gold-glow: rgba(212, 175, 55, 0.25);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: rgba(212, 175, 55, 0.15);
+            --border-glow: rgba(212, 175, 55, 0.4);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-top {
+            background: rgba(19, 27, 46, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-info span {
+            margin-right: 20px;
+        }
+
+        .top-info i {
+            color: var(--accent-gold);
+            margin-right: 6px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), #8a6d1b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b0f19;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px var(--accent-gold-glow);
+        }
+
+        .logo-text h2 {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-size: 0.72rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+            box-shadow: 0 0 8px var(--accent-gold);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--accent-gold), #b89228);
+            color: #0b0f19;
+            padding: 10px 22px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px var(--accent-gold-glow);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #e5be42, var(--accent-gold));
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 10px 22px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold-glow);
+            color: var(--accent-gold-light);
+        }
+
+        .page-hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        main {
+            flex: 1;
+            padding: 50px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: #070a11;
+            border-top: 1px solid var(--border-color);
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 18px;
+        }
+
+        .footer-col p, .footer-col li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 550px;
+            padding: 32px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-gold);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            background: #0b0f19;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="container top-flex">
+            <div class="top-info">
+                <span><i class="fa-solid fa-location-dot"></i> Žemaitės g. 15, Vilnius</span>
+                <span><i class="fa-solid fa-phone"></i> +370 600 00000</span>
+                <span><i class="fa-solid fa-clock"></i> I-V 8:00 - 20:00</span>
+            </div>
+            <div>
+                <a href="kontaktai.html" style="color: var(--accent-gold);"><i class="fa-solid fa-envelope"></i> info@adentis.lt</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-person-walking"></i></div>
+                <div class="logo-text">
+                    <h2>ADENTIS</h2>
+                    <span>Kinezoterapijos Namai</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link ">Pagrindinis</a></li>
+                <li><a href="apie-mus.html" class="nav-link ">Apie mus</a></li>
+                <li><a href="paslaugos.html" class="nav-link ">Paslaugos</a></li>
+                <li><a href="specialistai.html" class="nav-link ">Specialistai</a></li>
+                <li><a href="kainos.html" class="nav-link active">Kainos</a></li>
+                <li><a href="kontaktai.html" class="nav-link ">Kontaktai</a></li>
+            </ul>
+            <button class="btn-gold" onclick="openModal()"><i class="fa-regular fa-calendar-check"></i> Registracija</button>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <div class="container">
+            <h1>Paslaugų Kainos</h1>
+            <p>Skaidrios ir aiškios reabilitacijos paslaugų kainos.</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--border-glow); text-align: left;">
+                        <th style="padding: 14px; color: var(--accent-gold);">Paslauga</th>
+                        <th style="padding: 14px; color: var(--accent-gold);">Trukmė</th>
+                        <th style="padding: 14px; color: var(--accent-gold); text-align: right;">Kaina</th>
+                    </tr>
+                </thead>
+                <tbody style="color: var(--text-muted);">
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Pirma kinezoterapeuto konsultacija ir ištyrimas</td>
+                        <td style="padding: 16px;">60 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">50 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Individuali kinezoterapijos treniruotė</td>
+                        <td style="padding: 16px;">50 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">45 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Redcord Neurac terapija</td>
+                        <td style="padding: 16px;">45 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">50 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Gydomasis nugaros masažas</td>
+                        <td style="padding: 16px;">45 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">40 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Bendras kūno masažas</td>
+                        <td style="padding: 16px;">60 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">60 €</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">5 kartų kinezoterapijos abonementas</td>
+                        <td style="padding: 16px;">5 x 50 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">200 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 15px;">
+                        <div class="logo-icon"><i class="fa-solid fa-person-walking"></i></div>
+                        <div class="logo-text">
+                            <h2>ADENTIS</h2>
+                            <span>Kinezoterapijos Namai</span>
+                        </div>
+                    </div>
+                    <p>Profesionali kinezoterapija, judesio reabilitacija ir giliųjų audinių terapija Vilniuje.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigacija</h4>
+                    <ul>
+                        <li><a href="index.html">Pagrindinis</a></li>
+                        <li><a href="apie-mus.html">Apie mus</a></li>
+                        <li><a href="paslaugos.html">Paslaugos</a></li>
+                        <li><a href="specialistai.html">Specialistai</a></li>
+                        <li><a href="kainos.html">Kainos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Paslaugos</h4>
+                    <ul>
+                        <li><a href="paslaugos.html">Kinezoterapija</a></li>
+                        <li><a href="paslaugos.html">Redcord Terapija</a></li>
+                        <li><a href="paslaugos.html">Masažas ir Manualinė</a></li>
+                        <li><a href="paslaugos.html">Sporto Reabilitacija</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktai</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Žemaitės g. 15, Vilnius</p>
+                    <p><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +370 600 00000</p>
+                    <p><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> info@adentis.lt</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adentis Kinezoterapijos Namai. Visos teisės saugomos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h2 style="margin-bottom: 8px; color: var(--accent-gold);">Registracija Vizitui</h2>
+            <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Užpildykite formą ir mes susisieksime patvirtinti laiką.</p>
+            <form onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label>Vardas Pavardė</label>
+                    <input type="text" class="form-control" required placeholder="Vardas Pavardė">
+                </div>
+                <div class="form-group">
+                    <label>Telefonas</label>
+                    <input type="tel" class="form-control" required placeholder="+370 600 00000">
+                </div>
+                <div class="form-group">
+                    <label>Paslauga</label>
+                    <select class="form-control">
+                        <option>Kinezoterapeuto konsultacija</option>
+                        <option>Redcord terapija</option>
+                        <option>Gydomasis masažas</option>
+                        <option>Manualinė terapija</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Pageidaujama data</label>
+                    <input type="date" class="form-control" required>
+                </div>
+                <button type="submit" class="btn-gold" style="width:100%; justify-content:center; margin-top:10px;">Potvirtinti Registraciją</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('bookingModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+        function handleBooking(e) {
+            e.preventDefault();
+            alert('Ačiū! Jūsų registracija gauta. Susisieksime artimiausiu metu.');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
