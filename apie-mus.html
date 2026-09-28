@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apie Mus - Adentis Kinezoterapijos Namai</title>
+    <title>Apie mus - Kūno kodas</title>
+    <meta name="description" content="Kūno kodas – kineziterapijos studija Vilniaus centre. Individualus požiūris, sąžiningas ištyrimas ir aiškus gydymo planas be tuščių pažadų.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%230b0f19'/%3E%3Cpath d='M36 26 L14 60 L36 94 M84 26 L106 60 L84 94' fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg fill='%23d4af37'%3E%3Crect x='50' y='27' width='22' height='10' rx='5'/%3E%3Crect x='46' y='41' width='26' height='10' rx='5'/%3E%3Crect x='45' y='55' width='30' height='10' rx='5'/%3E%3Crect x='48' y='69' width='26' height='10' rx='5'/%3E%3Crect x='49' y='83' width='20' height='10' rx='5'/%3E%3C/g%3E%3C/svg%3E">
     <style>
         :root {
             --bg-dark: #0b0f19;
@@ -97,40 +99,61 @@
             padding: 16px 0;
         }
 
+        /* ---------- LOGO ---------- */
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-gold), #8a6d1b);
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-mark {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 8px var(--accent-gold-glow));
+        }
+
+        .logo-mark .spine {
+            fill: var(--accent-gold);
+        }
+
+        .logo-text {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0b0f19;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px var(--accent-gold-glow);
+            flex-direction: column;
+            gap: 4px;
         }
 
         .logo-text h2 {
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.55rem;
+            letter-spacing: 0.5px;
             color: var(--text-main);
             text-transform: uppercase;
             line-height: 1;
         }
 
-        .logo-text span {
-            font-size: 0.72rem;
+        .logo-text h2 em {
+            font-style: normal;
             color: var(--accent-gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
+        .logo-text span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.66rem;
+            color: var(--accent-gold);
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* ---------- NAVIGATION ---------- */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -204,41 +227,140 @@
             color: var(--accent-gold-light);
         }
 
+        /* ---------- PAGE HERO ---------- */
         .page-hero {
-            padding: 60px 0 40px;
+            padding: 70px 0 55px;
             text-align: center;
-            background: radial-gradient(circle at top center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at top center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
             border-bottom: 1px solid var(--border-color);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
         }
 
         .page-hero h1 {
             font-size: 2.8rem;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: var(--text-main);
+            line-height: 1.2;
         }
 
         .page-hero p {
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
             font-size: 1.05rem;
         }
 
         main {
             flex: 1;
-            padding: 50px 0;
+            padding: 60px 0;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
+        section + section {
+            margin-top: 90px;
         }
 
-        .grid-2 {
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ---------- STORY ---------- */
+        .story {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 32px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .story p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1.02rem;
+        }
+
+        .story p strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .quote-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            padding: 40px 34px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-card .quote-mark {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            right: -18px;
+            bottom: -18px;
+            opacity: 0.08;
+        }
+
+        .quote-card .quote-mark .spine {
+            fill: var(--accent-gold);
+        }
+
+        .quote-card i {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .quote-card blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            font-style: italic;
+            margin-bottom: 18px;
+        }
+
+        .quote-card cite {
+            color: var(--accent-gold);
+            font-style: normal;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ---------- CARDS ---------- */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
         }
 
         .card {
@@ -269,16 +391,116 @@
         }
 
         .card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
         .card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 20px;
         }
 
+        /* ---------- PROCESS ---------- */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding: 30px 26px 26px;
+            border-top: 2px solid var(--border-glow);
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.05), transparent 70%);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        }
+
+        .step-num {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.93rem;
+        }
+
+        /* ---------- LOCATION ---------- */
+        .info-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+        }
+
+        .info-item i {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-top: 3px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .info-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* ---------- CTA ---------- */
+        .cta {
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14) 0%, transparent 65%), var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            padding: 55px 30px;
+        }
+
+        .cta h2 {
+            font-size: 2.1rem;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto 28px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- FOOTER ---------- */
         footer {
             background: #070a11;
             border-top: 1px solid var(--border-color);
@@ -318,6 +540,7 @@
             font-size: 0.85rem;
         }
 
+        /* ---------- MODAL ---------- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -388,38 +611,58 @@
             outline: none;
             border-color: var(--accent-gold);
         }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            .story {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header-top">
         <div class="container top-flex">
             <div class="top-info">
-                <span><i class="fa-solid fa-location-dot"></i> Žemaitės g. 15, Vilnius</span>
-                <span><i class="fa-solid fa-phone"></i> +370 600 00000</span>
-                <span><i class="fa-solid fa-clock"></i> I-V 8:00 - 20:00</span>
+                <span><i class="fa-solid fa-location-dot"></i> Lvivo g. 91, Vilnius</span>
+                <span><i class="fa-solid fa-phone"></i> +37062793618 </span>
+                <span><i class="fa-solid fa-clock"></i> I-V 8:00 - 18.00</span>
             </div>
             <div>
-                <a href="kontaktai.html" style="color: var(--accent-gold);"><i class="fa-solid fa-envelope"></i> info@adentis.lt</a>
+                <a href="kontaktai.html" style="color: var(--accent-gold);"><i class="fa-solid fa-envelope"></i> info@kunokodas.lt</a>
             </div>
         </div>
     </div>
 
     <header>
         <div class="container navbar">
-            <a href="index.html" class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <a href="index.html" class="logo" aria-label="Kūno kodas – pagrindinis">
+                <svg class="logo-mark" viewBox="0 0 120 120" aria-hidden="true">
+                    <path d="M36 26 L14 60 L36 94 M84 26 L106 60 L84 94" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g class="spine">
+                        <rect x="50" y="27" width="22" height="10" rx="5"/>
+                        <rect x="46" y="41" width="26" height="10" rx="5"/>
+                        <rect x="45" y="55" width="30" height="10" rx="5"/>
+                        <rect x="48" y="69" width="26" height="10" rx="5"/>
+                        <rect x="49" y="83" width="20" height="10" rx="5"/>
+                    </g>
+                </svg>
                 <div class="logo-text">
-                    <h2>ADENTIS</h2>
-                    <span>Kinezoterapijos Namai</span>
+                    <h2>Kūno <em>kodas</em></h2>
+                    <span>Kineziterapijos studija</span>
                 </div>
             </a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link ">Pagrindinis</a></li>
-                <li><a href="apie-mus.html" class="nav-link active">Apie mus</a></li>
-                <li><a href="paslaugos.html" class="nav-link ">Paslaugos</a></li>
-                <li><a href="specialistai.html" class="nav-link ">Specialistai</a></li>
-                <li><a href="kainos.html" class="nav-link ">Kainos</a></li>
-                <li><a href="kontaktai.html" class="nav-link ">Kontaktai</a></li>
+                <li><a href="index.html" class="nav-link">Pagrindinis</a></li>
+                <li><a href="apie-mus.html" class="nav-link active">Apie</a></li>
+                <li><a href="paslaugos.html" class="nav-link">Paslaugos</a></li>
+                <li><a href="specialistai.html" class="nav-link">Specialistai</a></li>
+                <li><a href="kainos.html" class="nav-link">Kainos</a></li>
+                <li><a href="kontaktai.html" class="nav-link">Kontaktai</a></li>
             </ul>
             <button class="btn-gold" onclick="openModal()"><i class="fa-regular fa-calendar-check"></i> Registracija</button>
         </div>
@@ -427,28 +670,143 @@
 
     <div class="page-hero">
         <div class="container">
-            <h1>Apie Adentis Kinezoterapijos Namus</h1>
-            <p>Mūsų tikslas – grąžinti jums judėjimo džiaugsmą ir padėti gyventi be skausmo.</p>
+            <span class="eyebrow">Apie mus</span>
+            <h1>Kineziterapija, kurios centre – jūs</h1>
+            <p>Kūno kodas – kineziterapijos studija Vilniaus centre. Ieškome skausmo priežasties, o ne tik malšiname simptomus, ir dirbame nuosekliai, be tuščių pažadų.</p>
         </div>
     </div>
 
     <main class="container">
-        <div class="grid-2" style="align-items: center; margin-bottom: 60px;">
+
+        <!-- Story -->
+        <section class="story">
             <div>
-                <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: var(--accent-gold);">Mūsų Filosofija</h2>
-                <p style="color: var(--text-muted); margin-bottom: 15px;">Adentis klinikoje tikime, kad kiekvienas kūnas yra unikalus. Mes nesigiliname vien į simptomus – ieškome ir šaliname tikrąsias skausmo ir disfunkcijos priežastis.</p>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Naudodami moderniausius mokslo įrodytus reabilitacijos metodus bei pažangią įrangą, padedame pacientams greičiau grįžti į pilnavertį gyvenimą.</p>
-                <button class="btn-gold" onclick="openModal()">Susitarti dėl vizito</button>
+                <span class="eyebrow">Mūsų filosofija</span>
+                <h2>Kiekvienas kūnas turi savo kodą</h2>
+                <p>Du žmonės su tuo pačiu skausmu retai turi tą pačią jo priežastį. Todėl <strong>nekopijuojame programų</strong> – kiekvienam pacientui sudarome naują planą, pritaikytą būtent jo kūnui, tikslams ir tempui.</p>
+                <p>Vizitas prasideda nuo nuodugnaus ištyrimo: vertiname laikyseną, judesius ir raumenų būklę, kad suprastume, <strong>kodėl</strong> skauda, o ne tik <strong>kur</strong>.</p>
+                <p>Nežadame stebuklų. Sąžiningai įvertiname jūsų būklę, aiškiai paaiškiname, ką matome, ir kartu sudarome realų planą.</p>
             </div>
-            <div class="card" style="background: linear-gradient(135deg, var(--bg-card), #19233c);">
-                <h3 style="margin-bottom: 15px;"><i class="fa-solid fa-bullseye" style="color: var(--accent-gold);"></i> Mūsų Vertybės</h3>
-                <ul style="list-style: none; color: var(--text-muted);">
-                    <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">Aukščiausia Kvalifikacija:</strong> Mūsų specialistai nuolat kelia kvalifikaciją tarptautiniuose seminaruose.</li>
-                    <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">Individualus Dėmesys:</strong> Kiekvienam pacientui skiriamas visiškas dėmesys be skubėjimo.</li>
-                    <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">Inovacijos:</strong> Taikome pažangiausias reabilitacijos technologijas (Redcord, Tecar, Dry Needling).</li>
-                </ul>
+            <div class="quote-card">
+                <svg class="quote-mark" viewBox="0 0 120 120" aria-hidden="true">
+                    <path d="M36 26 L14 60 L36 94 M84 26 L106 60 L84 94" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g class="spine">
+                        <rect x="50" y="27" width="22" height="10" rx="5"/>
+                        <rect x="46" y="41" width="26" height="10" rx="5"/>
+                        <rect x="45" y="55" width="30" height="10" rx="5"/>
+                        <rect x="48" y="69" width="26" height="10" rx="5"/>
+                        <rect x="49" y="83" width="20" height="10" rx="5"/>
+                    </g>
+                </svg>
+                <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+                <blockquote>Jūsų kūnas neturi kopijos, todėl ir jūsų kineziterapijos planas jos neturės.</blockquote>
+                <cite>Kūno kodas</cite>
             </div>
-        </div>
+        </section>
+
+        <!-- Values -->
+        <section>
+            <div class="section-title">
+                <span class="eyebrow">Vertybės</span>
+                <h2>Kuo mes kitokie</h2>
+                <p>Sąžiningai. Nuosekliai. Tik jums.</p>
+            </div>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-user"></i></div>
+                    <h3>Visas dėmesys – tik jums</h3>
+                    <p>Jokių grupių ir skubėjimo. Visą vizito laiką specialistas dirba tik su jumis.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Ieškome priežasties</h3>
+                    <p>Ne tik malšiname skausmą, bet ir nustatome, kas jį sukelia, kad galėtume veikti tikslingai.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Be pažadų ir iliuzijų</h3>
+                    <p>Sakome, kaip yra: sąžiningas įvertinimas ir aiškus, realus gydymo planas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                    <h3>Moksliškai pagrįsta</h3>
+                    <p>Taikome moderniais tyrimais paremtus ir laiko patikrintus metodus bei šiuolaikinę įrangą.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section>
+            <div class="section-title">
+                <span class="eyebrow">Kaip dirbame</span>
+                <h2>Nuo ištyrimo iki prevencijos</h2>
+                <p>Kiekvieną vizitą kuriame aplink jus – jūsų kūną, jūsų tikslus ir jūsų tempą.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">01</span>
+                    <h3>Ištyrimas</h3>
+                    <p>Įvertiname laikyseną, judesių amplitudę, raumenų jėgą ir balansą, išklausome jūsų istoriją.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">02</span>
+                    <h3>Aiškus planas</h3>
+                    <p>Paaiškiname, ką nustatėme, ir kartu sudarome individualų, realistišką gydymo planą.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">03</span>
+                    <h3>Terapija</h3>
+                    <p>Kineziterapija, manualinė terapija, Redcord ir kiti metodai, parinkti pagal jūsų poreikius.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">04</span>
+                    <h3>Prevencija</h3>
+                    <p>Stipriname kūną ir mokome pratimų namams, kad judėtumėte laisviau ir užtikrinčiau.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section>
+            <div class="section-title">
+                <span class="eyebrow">Studija</span>
+                <h2>Patogiai Vilniaus centre</h2>
+            </div>
+            <div class="info-strip">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <div>
+                        <h4>Adresas</h4>
+                        <p>Lvivo g. 91, Vilnius</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    <div>
+                        <h4>Darbo laikas</h4>
+                        <p>I–V 8:00–18:00</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-square-parking" aria-hidden="true"></i>
+                    <div>
+                        <h4>Nemokama parkavimo vieta</h4>
+                        <p>Jūsų automobiliui vizito metu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <h2>Pradėkime nuo jūsų kūno kodo</h2>
+            <p>Užsiregistruokite konsultacijai – įvertinsime jūsų būklę ir kartu sudarysime aiškų planą.</p>
+            <div class="cta-buttons">
+                <button class="btn-gold" onclick="openModal()"><i class="fa-regular fa-calendar-check"></i> Registruotis konsultacijai</button>
+                <a href="paslaugos.html" class="btn-outline">Mūsų paslaugos</a>
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -456,13 +814,22 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="margin-bottom: 15px;">
-                        <div class="logo-icon"><i class="fa-solid fa-person-walking"></i></div>
+                        <svg class="logo-mark" viewBox="0 0 120 120" aria-hidden="true">
+                            <path d="M36 26 L14 60 L36 94 M84 26 L106 60 L84 94" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g class="spine">
+                                <rect x="50" y="27" width="22" height="10" rx="5"/>
+                                <rect x="46" y="41" width="26" height="10" rx="5"/>
+                                <rect x="45" y="55" width="30" height="10" rx="5"/>
+                                <rect x="48" y="69" width="26" height="10" rx="5"/>
+                                <rect x="49" y="83" width="20" height="10" rx="5"/>
+                            </g>
+                        </svg>
                         <div class="logo-text">
-                            <h2>ADENTIS</h2>
-                            <span>Kinezoterapijos Namai</span>
+                            <h2>Kūno <em>kodas</em></h2>
+                            <span>Kineziterapijos studija</span>
                         </div>
                     </div>
-                    <p>Profesionali kinezoterapija, judesio reabilitacija ir giliųjų audinių terapija Vilniuje.</p>
+                    <p>Jūsų kūnas neturi kopijos, todėl ir jūsų kineziterapijos planas jos neturės</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigacija</h4>
@@ -477,30 +844,31 @@
                 <div class="footer-col">
                     <h4>Paslaugos</h4>
                     <ul>
-                        <li><a href="paslaugos.html">Kinezoterapija</a></li>
-                        <li><a href="paslaugos.html">Redcord Terapija</a></li>
-                        <li><a href="paslaugos.html">Masažas ir Manualinė</a></li>
-                        <li><a href="paslaugos.html">Sporto Reabilitacija</a></li>
+                        <li><a href="paslaugos.html">Kineziterapinis ištyrimas</a></li>
+                        <li><a href="paslaugos.html">Kineziterapija</a></li>
+                        <li><a href="paslaugos.html">Manualinė terapija</a></li>
+                        <li><a href="paslaugos.html">Masažas</a></li>
+                        <li><a href="paslaugos.html">Fizioterapija</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Kontaktai</h4>
-                    <p><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Žemaitės g. 15, Vilnius</p>
-                    <p><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +370 600 00000</p>
-                    <p><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> info@adentis.lt</p>
+                    <p><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Lvivo g. 91, Vilnius</p>
+                    <p><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +37062793618</p>
+                    <p><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> info@kunokodas.lt</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Adentis Kinezoterapijos Namai. Visos teisės saugomos.</p>
+                <p>&copy; 2026 Kūno Kodas Kineziterapijos Studija. Visos teisės saugomos.</p>
             </div>
         </div>
     </footer>
 
     <div class="modal-overlay" id="bookingModal">
         <div class="modal">
-            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="modal-close" onclick="closeModal()" aria-label="Uždaryti"><i class="fa-solid fa-xmark"></i></button>
             <h2 style="margin-bottom: 8px; color: var(--accent-gold);">Registracija Vizitui</h2>
-            <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Užpildykite formą ir mes susisieksime patvirtinti laiką.</p>
+            <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Užpildykite formą ir mes su Jumis susisieksime.</p>
             <form onsubmit="handleBooking(event)">
                 <div class="form-group">
                     <label>Vardas Pavardė</label>
@@ -513,17 +881,19 @@
                 <div class="form-group">
                     <label>Paslauga</label>
                     <select class="form-control">
-                        <option>Kinezoterapeuto konsultacija</option>
-                        <option>Redcord terapija</option>
-                        <option>Gydomasis masažas</option>
+                        <option>Kineziterapeuto konsultacija</option>
+                        <option>Individualus ištyrimas</option>
+                        <option>Kineziterapija</option>
+                        <option>Masažo terapija</option>
                         <option>Manualinė terapija</option>
+                        <option>Fizioterapija</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Pageidaujama data</label>
+                    <label>Pageidaujama vizito data</label>
                     <input type="date" class="form-control" required>
                 </div>
-                <button type="submit" class="btn-gold" style="width:100%; justify-content:center; margin-top:10px;">Potvirtinti Registraciją</button>
+                <button type="submit" class="btn-gold" style="width:100%; justify-content:center; margin-top:10px;">Patvirtinti Registraciją</button>
             </form>
         </div>
     </div>
