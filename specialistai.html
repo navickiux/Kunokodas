@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specialistai - Adentis Kinezoterapijos Namai</title>
+    <title>Specialistai - Kūno kodas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%230b0f19'/%3E%3Cpath d='M36 26 L14 60 L36 94 M84 26 L106 60 L84 94' fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg fill='%23d4af37'%3E%3Crect x='50' y='27' width='22' height='10' rx='5'/%3E%3Crect x='46' y='41' width='26' height='10' rx='5'/%3E%3Crect x='45' y='55' width='30' height='10' rx='5'/%3E%3Crect x='48' y='69' width='26' height='10' rx='5'/%3E%3Crect x='49' y='83' width='20' height='10' rx='5'/%3E%3C/g%3E%3C/svg%3E">
     <style>
         :root {
             --bg-dark: #0b0f19;
@@ -103,32 +104,51 @@
             gap: 12px;
         }
 
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-gold), #8a6d1b);
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-mark {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 8px var(--accent-gold-glow));
+        }
+
+        .logo-mark .spine {
+            fill: var(--accent-gold);
+        }
+
+        .logo-text {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0b0f19;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px var(--accent-gold-glow);
+            flex-direction: column;
+            gap: 4px;
         }
 
         .logo-text h2 {
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.55rem;
+            letter-spacing: 0.5px;
             color: var(--text-main);
             text-transform: uppercase;
             line-height: 1;
         }
 
-        .logo-text span {
-            font-size: 0.72rem;
+        .logo-text h2 em {
+            font-style: normal;
             color: var(--accent-gold);
-            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.66rem;
+            color: var(--accent-gold);
+            letter-spacing: 2.4px;
             text-transform: uppercase;
+            line-height: 1;
         }
 
         .nav-menu {
@@ -394,28 +414,37 @@
     <div class="header-top">
         <div class="container top-flex">
             <div class="top-info">
-                <span><i class="fa-solid fa-location-dot"></i> Žemaitės g. 15, Vilnius</span>
-                <span><i class="fa-solid fa-phone"></i> +370 600 00000</span>
-                <span><i class="fa-solid fa-clock"></i> I-V 8:00 - 20:00</span>
+                <span><i class="fa-solid fa-location-dot"></i> Lvivo g. 91, Vilnius</span>
+                <span><i class="fa-solid fa-phone"></i> +37062793618 </span>
+                <span><i class="fa-solid fa-clock"></i> I-V 8:00 - 18.00</span>
             </div>
             <div>
-                <a href="kontaktai.html" style="color: var(--accent-gold);"><i class="fa-solid fa-envelope"></i> info@adentis.lt</a>
+                <a href="kontaktai.html" style="color: var(--accent-gold);"><i class="fa-solid fa-envelope"></i> info@kunokodas.lt</a>
             </div>
         </div>
     </div>
 
     <header>
         <div class="container navbar">
-            <a href="index.html" class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <a href="index.html" class="logo" aria-label="Kūno kodas – pagrindinis">
+                <svg class="logo-mark" viewBox="0 0 120 120" aria-hidden="true">
+                    <path d="M36 26 L14 60 L36 94 M84 26 L106 60 L84 94" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g class="spine">
+                        <rect x="50" y="27" width="22" height="10" rx="5"/>
+                        <rect x="46" y="41" width="26" height="10" rx="5"/>
+                        <rect x="45" y="55" width="30" height="10" rx="5"/>
+                        <rect x="48" y="69" width="26" height="10" rx="5"/>
+                        <rect x="49" y="83" width="20" height="10" rx="5"/>
+                    </g>
+                </svg>
                 <div class="logo-text">
-                    <h2>ADENTIS</h2>
-                    <span>Kinezoterapijos Namai</span>
+                    <h2>Kūno <em>kodas</em></h2>
+                    <span>Kineziterapijos studija</span>
                 </div>
             </a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link ">Pagrindinis</a></li>
-                <li><a href="apie-mus.html" class="nav-link ">Apie mus</a></li>
+                <li><a href="apie-mus.html" class="nav-link ">Apie</a></li>
                 <li><a href="paslaugos.html" class="nav-link ">Paslaugos</a></li>
                 <li><a href="specialistai.html" class="nav-link active">Specialistai</a></li>
                 <li><a href="kainos.html" class="nav-link ">Kainos</a></li>
@@ -469,13 +498,22 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="margin-bottom: 15px;">
-                        <div class="logo-icon"><i class="fa-solid fa-person-walking"></i></div>
+                        <svg class="logo-mark" viewBox="0 0 120 120" aria-hidden="true">
+                            <path d="M36 26 L14 60 L36 94 M84 26 L106 60 L84 94" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g class="spine">
+                                <rect x="50" y="27" width="22" height="10" rx="5"/>
+                                <rect x="46" y="41" width="26" height="10" rx="5"/>
+                                <rect x="45" y="55" width="30" height="10" rx="5"/>
+                                <rect x="48" y="69" width="26" height="10" rx="5"/>
+                                <rect x="49" y="83" width="20" height="10" rx="5"/>
+                            </g>
+                        </svg>
                         <div class="logo-text">
-                            <h2>ADENTIS</h2>
-                            <span>Kinezoterapijos Namai</span>
+                            <h2>Kūno <em>kodas</em></h2>
+                            <span>Kineziterapijos studija</span>
                         </div>
                     </div>
-                    <p>Profesionali kinezoterapija, judesio reabilitacija ir giliųjų audinių terapija Vilniuje.</p>
+                    <p>Jūsų kūnas neturi kopijos, todėl ir jūsų kineziterapijos planas jos neturės</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigacija</h4>
@@ -498,13 +536,13 @@
                 </div>
                 <div class="footer-col">
                     <h4>Kontaktai</h4>
-                    <p><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Žemaitės g. 15, Vilnius</p>
-                    <p><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +370 600 00000</p>
-                    <p><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> info@adentis.lt</p>
+                    <p><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Lvivo g. 91, Vilnius</p>
+                    <p><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +37062793618</p>
+                    <p><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> info@kunokodas.lt</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Adentis Kinezoterapijos Namai. Visos teisės saugomos.</p>
+                <p>&copy; 2026 Kūno Kodas Kineziterapijos Studija. Visos teisės saugomos.</p>
             </div>
         </div>
     </footer>
@@ -536,7 +574,7 @@
                     <label>Pageidaujama data</label>
                     <input type="date" class="form-control" required>
                 </div>
-                <button type="submit" class="btn-gold" style="width:100%; justify-content:center; margin-top:10px;">Potvirtinti Registraciją</button>
+                <button type="submit" class="btn-gold" style="width:100%; justify-content:center; margin-top:10px;">Patvirtinti Registraciją</button>
             </form>
         </div>
     </div>
