@@ -408,6 +408,130 @@
             outline: none;
             border-color: var(--accent-gold);
         }
+        /* ---------- SERVICES GRID ---------- */
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .svc-grid.plans {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .svc-grid .svc-card {
+            align-items: center;
+            text-align: center;
+            min-height: 230px;
+            padding: 30px 20px 24px;
+        }
+
+        .svc-grid .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 1px solid var(--border-glow);
+            margin: 0 auto 16px;
+        }
+
+        .svc-grid .svc-card h3 {
+            font-size: 1.2rem;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .svc-grid .svc-dur {
+            margin: 0 0 12px;
+        }
+
+        .card-icon .svc-svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        #svcModalIcon .svc-svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .svc-card:hover .card-icon {
+            background: var(--accent-gold);
+            color: #0b0f19;
+        }
+
+        @media (max-width: 1000px) {
+            .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .svc-grid.plans { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 700px) {
+            .svc-grid.plans { grid-template-columns: 1fr; max-width: 420px; }
+        }
+
+        @media (max-width: 480px) {
+            .svc-grid { gap: 14px; }
+            .svc-grid .svc-card { min-height: 190px; padding: 24px 12px 20px; }
+            .svc-grid .svc-card h3 { font-size: 1.05rem; }
+        }
+
+        .svc-card {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .svc-card:focus-visible {
+            outline: none;
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .svc-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-gold-glow);
+        }
+
+        .svc-desc {
+            display: none;
+        }
+
+        .svc-more {
+            margin-top: auto;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .svc-modal {
+            max-width: 560px;
+        }
+
+        .svc-modal h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            padding-right: 30px;
+        }
+
+        #svcModalText {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 6px 0 26px;
+        }
+
+        .svc-modal-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .svc-modal-actions > * {
+            flex: 1 1 180px;
+            justify-content: center;
+        }
+
         .svc-dur {
             display: inline-flex;
             align-items: center;
@@ -504,87 +628,57 @@
     </div>
 
     <main class="container">
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="svc-grid">
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="8" width="24" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 5h10v6H17z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18h12M16 24h8M16 30h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33" cy="33" r="6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M37.5 37.5L42 42" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Kineziterapinis ištyrimas</h3>
-                <p>Pirmas žingsnis prieš bet kokį gydymą. Išklausome jūsų istoriją, vertiname laikyseną, judesių amplitudę, raumenų jėgą ir balansą, atliekame funkcinius testus. Paaiškiname, ką nustatėme, ir kartu sudarome individualų, realistišką gydymo planą.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Pirmas žingsnis prieš bet kokį gydymą. Išklausome jūsų istoriją, vertiname laikyseną, judesių amplitudę, raumenų jėgą ir balansą, atliekame funkcinius testus. Paaiškiname, ką nustatėme, ir kartu sudarome individualų, realistišką gydymo planą.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 12v14M24 26l-6 14M24 26l6 14M24 16l-9-6M24 16l9-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 10c-4 10-4 22 3 30M33 10c4 10 4 22-3 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/></svg></div>
                 <h3>Kineziterapija</h3>
-                <p>Individualiai parinkti pratimai, kuriais atkuriama judesių amplitudė, jėga ir stabilumas. Tinka esant nugaros, kaklo ar sąnarių skausmui, po traumų ir operacijų, laikysenos problemoms bei siekiant pagerinti fizinį parengimą ir išvengti traumų. Taip pat išmokome pratimų, kuriuos galėsite atlikti namuose.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Individualiai parinkti pratimai, kuriais atkuriama judesių amplitudė, jėga ir stabilumas. Tinka esant nugaros, kaklo ar sąnarių skausmui, po traumų ir operacijų, laikysenos problemoms bei siekiant pagerinti fizinį parengimą ir išvengti traumų. Taip pat išmokome pratimų, kuriuos galėsite atlikti namuose.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-hands"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><rect x="21" y="6" width="6" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="20.5" y="14" width="7" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="20" y="22" width="8" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="20.5" y="30" width="7" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="21" y="38" width="6" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 30l8-8c1.5-1.5 3.5-1 4 1l1 3M6 30l5 5h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 30l-8-8c-1.5-1.5-3.5-1-4 1l-1 3M42 30l-5 5h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Manualinė terapija</h3>
-                <p>Rankomis atliekamos sąnarių ir minkštųjų audinių mobilizacijos technikos, padedančios mažinti skausmą, raumenų įtampą ir atgauti sąnarių paslankumą. Dažniausiai derinama su kineziterapija, kad pasiektas rezultatas būtų ilgalaikis.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Rankomis atliekamos sąnarių ir minkštųjų audinių mobilizacijos technikos, padedančios mažinti skausmą, raumenų įtampą ir atgauti sąnarių paslankumą. Dažniausiai derinama su kineziterapija, kad pasiektas rezultatas būtų ilgalaikis.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 22V12a2.5 2.5 0 015 0v8M17 20V9a2.5 2.5 0 015 0v11M22 20v-9a2.5 2.5 0 015 0v10M27 21v-6a2.5 2.5 0 015 0v9c0 5-3 8-8 8h-3c-4 0-6-2-8-5l-3-5a2.3 2.3 0 014-2.3l2 2.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 40c3-2.5 6-2.5 9 0s6 2.5 9 0 6-2.5 9 0 6 2.5 9 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Gydomasis masažas</h3>
-                <p>Gydomasis masažas, mažinantis raumenų įtampą ir skausmą, gerinantis kraujotaką bei audinių elastingumą. Technikos ir intensyvumas parenkami pagal jūsų poreikius – po krūvio, esant lėtinei įtampai ar reabilitacijos metu.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Gydomasis masažas, mažinantis raumenų įtampą ir skausmą, gerinantis kraujotaką bei audinių elastingumą. Technikos ir intensyvumas parenkami pagal jūsų poreikius – po krūvio, esant lėtinei įtampai ar reabilitacijos metu.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-spa"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 10c4 4 6 8 6 12s-2.5 7-6 8c-3.5-1-6-4-6-8s2-8 6-12z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 24c-5-3-10-3-12-2 0 6 6 10 18 8M30 24c5-3 10-3 12-2 0 6-6 10-18 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 38c3 2 6 2 9 0s6-2 9 0 6 2 9 0 4-1.5 5-1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Relaksacinis masažas</h3>
-                <p>Ilgas, 2 valandų atpalaiduojantis viso kūno masažas. Lėti, ritmingi judesiai padeda atsipalaiduoti, sumažinti raumenų įtampą ir stresą. Puikiai tinka po įtemptos savaitės ar kaip dovana sau.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Ilgas, 2 valandų atpalaiduojantis viso kūno masažas. Lėti, ritmingi judesiai padeda atsipalaiduoti, sumažinti raumenų įtampą ir stresą. Puikiai tinka po įtemptos savaitės ar kaip dovana sau.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-person-running"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38h22a9 9 0 000-18c-3 0-5.5 1.2-7.5 3.2L20 13a3 3 0 00-5.6-.6L13 16l4 2 1.5 6.5C12 26 8 31 8 38z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 9l-2.5 3M41 14l-3.5 1.5M31 6.5l-.5 3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Sportinis masažas</h3>
-                <p>Masažas aktyviai sportuojantiems: padeda paruošti raumenis krūviui, mažinti įtampą po intensyvių treniruočių ir varžybų bei palengvinti atsigavimą. Technika ir intensyvumas parenkami pagal sporto šaką ir treniruočių ciklą.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Masažas aktyviai sportuojantiems: padeda paruošti raumenis krūviui, mažinti įtampą po intensyvių treniruočių ir varžybų bei palengvinti atsigavimą. Technika ir intensyvumas parenkami pagal sporto šaką ir treniruočių ciklą.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><circle cx="28" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 13l-5 12M26 16l6 4M26 16l-7 1-3 4M22 25l6 6-1 9M22 25l-5 7-7 1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 40V26M36 30l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Grįžimas į sportą</h3>
-                <p>Etapinė programa po traumos ar operacijos. Funkciniais testais įvertiname jėgą, stabilumą ir judesio kokybę, o krūvį didiname palaipsniui – kad į sportą grįžtumėte pasiruošę, o ne tik tada, kai nebeskauda.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Etapinė programa po traumos ar operacijos. Funkciniais testais įvertiname jėgą, stabilumą ir judesio kokybę, o krūvį didiname palaipsniui – kad į sportą grįžtumėte pasiruošę, o ne tik tada, kai nebeskauda.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="card svc-card" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="card-icon"><svg class="svc-svg" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="28" width="14" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="28" y="28" width="14" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 28v-6c0-6 4-10 11-10s11 4 11 10v6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4l-3 6h6l-3 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Fizioterapija</h3>
-                <p>Aparatinės fizioterapijos procedūros, papildančios kineziterapiją: padeda mažinti skausmą ir uždegimą bei palengvina audinių gijimą. Procedūra parenkama pagal jūsų būklę ir gydymo tikslus.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+                <p class="svc-desc">Aparatinės fizioterapijos procedūros, papildančios kineziterapiją: padeda mažinti skausmą ir uždegimą bei palengvina audinių gijimą. Procedūra parenkama pagal jūsų būklę ir gydymo tikslus.</p>
+                <span class="svc-more">Plačiau <i class="fa-solid fa-arrow-right"></i></span>
             </div>
         </div>
 
-        <div class="svc-section-title">
-            <h2>Kineziterapijos abonementai</h2>
-            <p>Rezultatui svarbiausias nuoseklumas. Abonementai skirti individualiai kineziterapijai ir padeda išlaikyti reguliarų gydymo procesą.</p>
-        </div>
-
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
-                <h3>5 vizitų abonementas</h3>
-                <span class="svc-dur"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Galioja 2 mėnesius</span>
-                <p>5 individualios kineziterapijos procedūros ir pratimų programa namams.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
-                <h3>10 vizitų abonementas</h3>
-                <span class="svc-dur"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Galioja 4 mėnesius</span>
-                <p>10 individualių kineziterapijos procedūrų, pratimų programa namams ir pakartotinis įvertinimas kurso viduryje.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-calendar-week"></i></div>
-                <h3>Mėnesinis abonementas</h3>
-                <span class="svc-dur"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 3 kartai per savaitę · 30 dienų</span>
-                <p>12 individualių kineziterapijos procedūrų per mėnesį – intensyviai reabilitacijai po traumų ir operacijų.</p>
-                <a href="kainos.html" style="color: var(--accent-gold); font-weight: 600;">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <p class="svc-note"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Abonementų vizitams būtina išankstinė rezervacija pagal laisvus laikus registracijos formoje. Negalėdami atvykti, informuokite mus ne vėliau kaip prieš 24 val.</p>
     </main>
 
     <footer>
@@ -645,6 +739,20 @@
         </div>
     </footer>
 
+    <div class="modal-overlay" id="svcModal">
+        <div class="modal svc-modal" role="dialog" aria-modal="true" aria-labelledby="svcModalTitle">
+            <button class="modal-close" onclick="closeSvc()" aria-label="Uždaryti"><i class="fa-solid fa-xmark"></i></button>
+            <div class="card-icon" id="svcModalIcon"></div>
+            <h2 id="svcModalTitle"></h2>
+            <div id="svcModalMeta"></div>
+            <p id="svcModalText"></p>
+            <div class="svc-modal-actions">
+                <button class="btn-gold" onclick="closeSvc(); openModal();"><i class="fa-regular fa-calendar-check"></i> Registruotis</button>
+                <a href="kainos.html" class="btn-outline">Žiūrėti kainas <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="bookingModal">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -688,6 +796,31 @@
         function closeModal() {
             document.getElementById('bookingModal').classList.remove('active');
         }
+        function openSvc(card) {
+            document.getElementById('svcModalIcon').innerHTML = card.querySelector('.card-icon').innerHTML;
+            document.getElementById('svcModalTitle').textContent = card.querySelector('h3').textContent;
+            var meta = card.querySelector('.svc-dur');
+            document.getElementById('svcModalMeta').innerHTML = meta ? meta.outerHTML : '';
+            document.getElementById('svcModalText').innerHTML = card.querySelector('.svc-desc').innerHTML;
+            document.getElementById('svcModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSvc() {
+            document.getElementById('svcModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.svc-card').forEach(function (card) {
+            card.addEventListener('click', function () { openSvc(card); });
+            card.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSvc(card); }
+            });
+        });
+        document.getElementById('svcModal').addEventListener('click', function (e) {
+            if (e.target === this) closeSvc();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { closeSvc(); closeModal(); }
+        });
         function handleBooking(e) {
             e.preventDefault();
             alert('Ačiū! Jūsų registracija gauta. Susisieksime artimiausiu metu.');
