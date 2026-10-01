@@ -408,6 +408,76 @@
             outline: none;
             border-color: var(--accent-gold);
         }
+        /* ---------- SPECIALIZATION TILES ---------- */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .spec-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            padding: 30px 18px 26px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+
+        .spec-tile:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-gold-glow);
+        }
+
+        .spec-icon {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0.04) 70%);
+            border: 1px solid var(--border-glow);
+            margin-bottom: 6px;
+            transition: var(--transition);
+        }
+
+        .spec-svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .spec-tile:hover .spec-icon {
+            background: var(--accent-gold);
+            color: #0b0f19;
+        }
+
+        .spec-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.25;
+        }
+
+        @media (max-width: 960px) {
+            .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 480px) {
+            .spec-grid { gap: 14px; }
+            .spec-tile { padding: 24px 12px 20px; }
+            .spec-icon { width: 64px; height: 64px; }
+            .spec-svg { width: 38px; height: 38px; }
+            .spec-name { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -481,25 +551,39 @@
 
     <main class="container">
         <h2 style="text-align: center; margin-bottom: 35px; font-size: 2.2rem;">Specializuojamės</h2>
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                <h3>Kinezoterapeuto Konsultacija</h3>
-                <p>Nuodugnus laikysenos, raumenų būklės ir judesių testavimas, skausmo priežasčių nustatymas ir plano sudarymas.</p>
-                <a href="paslaugos.html" style="color: var(--accent-gold); font-weight: 600;">Plačiau <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-arrows-spin"></i></div>
-                <h3>Redcord Terapija</h3>
-                <p>Giliųjų raumenų aktyvavimas ir stuburo stabilizavimas naudojant kompiuterizuotas diržų sistemas ir neurac metodiką.</p>
-                <a href="paslaugos.html" style="color: var(--accent-gold); font-weight: 600;">Plačiau <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-hands"></i></div>
-                <h3>Manualinė Terapija & Masažas</h3>
-                <p>Giliųjų audinių ir sąnarių mobilizacija, raumenų įtampos mažinimas bei kraujotakos gerinimas greitam palengvėjimui.</p>
-                <a href="paslaugos.html" style="color: var(--accent-gold); font-weight: 600;">Plačiau <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
+        <div class="spec-grid">
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="8" width="24" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 5h10v6H17z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18h12M16 24h8M16 30h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33" cy="33" r="6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M37.5 37.5L42 42" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Kineziterapinis ištyrimas</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 12v14M24 26l-6 14M24 26l6 14M24 16l-9-6M24 16l9-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 10c-4 10-4 22 3 30M33 10c4 10 4 22-3 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/></svg></span>
+                <span class="spec-name">Kineziterapija</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><rect x="21" y="6" width="6" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="20.5" y="14" width="7" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="20" y="22" width="8" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="20.5" y="30" width="7" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="21" y="38" width="6" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 30l8-8c1.5-1.5 3.5-1 4 1l1 3M6 30l5 5h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 30l-8-8c-1.5-1.5-3.5-1-4 1l-1 3M42 30l-5 5h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Manualinė terapija</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 22V12a2.5 2.5 0 015 0v8M17 20V9a2.5 2.5 0 015 0v11M22 20v-9a2.5 2.5 0 015 0v10M27 21v-6a2.5 2.5 0 015 0v9c0 5-3 8-8 8h-3c-4 0-6-2-8-5l-3-5a2.3 2.3 0 014-2.3l2 2.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 40c3-2.5 6-2.5 9 0s6 2.5 9 0 6-2.5 9 0 6 2.5 9 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Masažas</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 10c4 4 6 8 6 12s-2.5 7-6 8c-3.5-1-6-4-6-8s2-8 6-12z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 24c-5-3-10-3-12-2 0 6 6 10 18 8M30 24c5-3 10-3 12-2 0 6-6 10-18 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 38c3 2 6 2 9 0s6-2 9 0 6 2 9 0 4-1.5 5-1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Relaksacinis masažas</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38h22a9 9 0 000-18c-3 0-5.5 1.2-7.5 3.2L20 13a3 3 0 00-5.6-.6L13 16l4 2 1.5 6.5C12 26 8 31 8 38z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 9l-2.5 3M41 14l-3.5 1.5M31 6.5l-.5 3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Sportinis masažas</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><circle cx="28" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 13l-5 12M26 16l6 4M26 16l-7 1-3 4M22 25l6 6-1 9M22 25l-5 7-7 1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 40V26M36 30l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Grįžimas į sportą</span>
+            </a>
+            <a href="paslaugos.html" class="spec-tile">
+                <span class="spec-icon"><svg class="spec-svg" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="28" width="14" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="28" y="28" width="14" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 28v-6c0-6 4-10 11-10s11 4 11 10v6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4l-3 6h6l-3 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="spec-name">Fizioterapija</span>
+            </a>
         </div>
     </main>
 
@@ -542,6 +626,9 @@
                         <li><a href="paslaugos.html">Kineziterapija</a></li>
                         <li><a href="paslaugos.html">Manualinė terapija</a></li>
                         <li><a href="paslaugos.html">Masažas</a></li>
+                        <li><a href="paslaugos.html">Relaksacinis masažas</a></li>
+                        <li><a href="paslaugos.html">Sportinis masažas</a></li>
+                        <li><a href="paslaugos.html">Grįžimas į sportą</a></li>
                         <li><a href="paslaugos.html">Fizioterapija</a></li>
                     </ul>
                 </div>
@@ -575,11 +662,13 @@
                 <div class="form-group">
                     <label>Paslauga</label>
                     <select class="form-control">
-                        <option>Kineziterapeuto konsultacija</option>
-                        <option>Individualus ištyrimas</option>
+                        <option>Kineziterapinis ištyrimas</option>
                         <option>Kineziterapija</option>
-                        <option>Masažo terapija</option>
                         <option>Manualinė terapija</option>
+                        <option>Masažas</option>
+                        <option>Relaksacinis masažas (2 val.)</option>
+                        <option>Sportinis masažas</option>
+                        <option>Grįžimas į sportą</option>
                         <option>Fizioterapija</option>
                     </select>
                 </div>
