@@ -408,6 +408,226 @@
             outline: none;
             border-color: var(--accent-gold);
         }
+        /* ---------- SPECIALIST PROFILE ---------- */
+        .specialist-card {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 36px;
+        }
+
+        .specialist-card:hover {
+            transform: none;
+        }
+
+        .spec-section {
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .spec-section h4 {
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-section h4 i {
+            color: var(--accent-gold);
+            font-size: 1rem;
+        }
+
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline li {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .timeline li:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .timeline li:first-child::before {
+            background: var(--accent-gold);
+        }
+
+        .tl-date {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: 0.5px;
+        }
+
+        .tl-now {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 1px 8px;
+            border-radius: 999px;
+            background: var(--accent-gold);
+            color: #0b0f19;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline strong {
+            display: block;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .tl-org {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .tl-desc {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-muted);
+            font-size: 0.86rem;
+            line-height: 1.55;
+            opacity: 0.9;
+        }
+
+        .tag-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-list li {
+            font-size: 0.85rem;
+            color: var(--accent-gold-light);
+            border: 1px solid var(--border-color);
+            background: rgba(212, 175, 55, 0.06);
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        .spec-clickable {
+            max-width: 480px;
+            cursor: pointer;
+        }
+
+        .spec-clickable:hover,
+        .spec-clickable:focus-visible {
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 24px var(--accent-gold-glow);
+            outline: none;
+        }
+
+        .spec-hint {
+            display: block;
+            text-align: center;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .specialist-modal {
+            max-width: 760px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 36px;
+        }
+
+        .spec-modal-head {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding-right: 30px;
+        }
+
+        .spec-avatar {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--border-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+        }
+
+        .spec-modal-head h2 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+
+        .spec-role {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-modal-spec {
+            margin-top: 18px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .spec-modal-spec strong {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 600px) {
+            .specialist-modal { padding: 26px 18px; max-height: 92vh; }
+            .spec-modal-head h2 { font-size: 1.45rem; }
+            .spec-avatar { width: 56px; height: 56px; font-size: 1.4rem; }
+        }
+
+        .spec-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .spec-actions > * {
+            flex: 1 1 200px;
+        }
+
+        @media (max-width: 600px) {
+            .specialist-card { padding: 26px 20px; }
+        }
     </style>
 </head>
 <body>
@@ -462,25 +682,21 @@
     </div>
 
     <main class="container">
-        <div class="grid-3" style="max-width: 420px; margin: 0 auto;">
-            <div class="card" style="text-align: center;">
+        <div class="specialist-card card spec-clickable" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="specialistModal" onclick="openSpecialist()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSpecialist();}">
+            <div style="text-align: center;">
                 <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--border-glow); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--accent-gold);">
                     <i class="fa-solid fa-user-doctor"></i>
                 </div>
                 <h3>Titas Navickas</h3>
-                <p style="color: var(--accent-gold); font-size: 0.88rem; font-weight: 600; text-transform: uppercase;">Kineziterapeutas</p>
-
-                <!-- Specializacija -->
-                <p><strong style="color: var(--text-main);">Specializacija:</strong> [Įrašykite specializaciją]</p>
-
-                <!-- Patirtis -->
-                <p><strong style="color: var(--text-main);">Patirtis:</strong> [Įrašykite patirtį, pvz. X metų patirtis ...]</p>
-
-                <!-- Kvalifikacija -->
-                <p><strong style="color: var(--text-main);">Kvalifikacija:</strong> [Įrašykite išsilavinimą, sertifikatus, kursus]</p>
-
-                <button class="btn-outline" onclick="openModal()" style="width: 100%; justify-content: center;">Registruotis</button>
+                <p style="color: var(--accent-gold); font-size: 0.88rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px;">Kineziterapeutas</p>
+                <p style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px; padding: 5px 14px; border: 1px solid var(--border-glow); border-radius: 999px; background: rgba(212, 175, 55, 0.06); color: var(--text-main); font-size: 0.85rem;"><i class="fa-solid fa-id-card" style="color: var(--accent-gold);" aria-hidden="true"></i> Kineziterapeuto licencijos Nr. ASL-13394</p>
+                <p style="margin-bottom: 10px;"><strong style="color: var(--text-main);">Specializacija:</strong> traumų reabilitacija, raumenų ir skeleto sistemos kineziterapija, manualinė terapija, masažo terapija</p>
             </div>
+            <div class="spec-actions">
+                <button class="btn-gold" onclick="event.stopPropagation(); openSpecialist();" style="justify-content: center;"><i class="fa-solid fa-user" aria-hidden="true"></i> Plačiau apie specialistą</button>
+                <button class="btn-outline" onclick="event.stopPropagation(); openModal();" style="justify-content: center;"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Registruotis</button>
+            </div>
+            <span class="spec-hint">Paspauskite, kad pamatytumėte patirtį ir išsilavinimą</span>
         </div>
     </main>
 
@@ -538,6 +754,142 @@
         </div>
     </footer>
 
+
+    <div class="modal-overlay" id="specialistModal" onclick="if(event.target===this) closeSpecialist()">
+        <div class="modal specialist-modal" role="dialog" aria-modal="true" aria-labelledby="specialistModalTitle">
+            <button class="modal-close" onclick="closeSpecialist()" aria-label="Uždaryti"><i class="fa-solid fa-xmark"></i></button>
+            <div class="spec-modal-head">
+                <div class="spec-avatar"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
+                <div>
+                    <h2 id="specialistModalTitle">Titas Navickas</h2>
+                    <p class="spec-role">Kineziterapeutas · Licencijos Nr. ASL-13394</p>
+                </div>
+            </div>
+            <p class="spec-modal-spec"><strong>Specializacija:</strong> traumų reabilitacija, raumenų ir skeleto sistemos kineziterapija, manualinė terapija, masažo terapija</p>
+            <div class="spec-section">
+                <h4><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i> Patirtis</h4>
+                <ul class="timeline">
+                        <li>
+                            <span class="tl-date">Nuo 2025 m. sausio <span class="tl-now">Dabar</span></span>
+                            <strong>Kineziterapeutas</strong>
+                            <span class="tl-org">VšĮ Karoliniškių poliklinika, Vilnius</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2023 07 – 2024 05</span>
+                            <strong>Kineziterapeutas</strong>
+                            <span class="tl-org">Body Tuning &amp; Physical Therapy, Vilnius</span>
+                            <span class="tl-desc">Kineziterapija profesionaliems muzikantams ir teatro artistams: individualūs reabilitacijos planai, manualinė terapija, pratimai ir fizioterapinės procedūros. Dažniausios būklės – raumenų patempimai, lateralinis ir medialinis epikondilitas, ACL traumos, bursitas, osteoartritas, nugaros skausmas, raumenų disbalansas.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2022 09 – 2023 02</span>
+                            <strong>Kineziterapeutas (praktika)</strong>
+                            <span class="tl-org">VUL Santaros klinikos, Vilnius</span>
+                            <span class="tl-desc">Neurologijos skyrius – reabilitacija pacientams po insulto: jėgos, pusiausvyros, koordinacijos ir judesių amplitudės gerinimas. Kardiologijos skyrius – saugios, širdies būklei pritaikytos fizinio krūvio programos.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2022 05 – 2022 06</span>
+                            <strong>Kineziterapeutas (praktika)</strong>
+                            <span class="tl-org">Antakalnio poliklinika, Vilnius</span>
+                            <span class="tl-desc">Vaikų kineziterapija: motorinių įgūdžių vertinimas, amžiui pritaikyti ir žaidimais paremti pratimai, grupinės terapijos, hidroterapija, tėvų konsultavimas.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2021 09 – 2022 03</span>
+                            <strong>Kineziterapeutas (praktika)</strong>
+                            <span class="tl-org">Šeškinės poliklinika, Vilnius</span>
+                            <span class="tl-desc">Individualūs planai funkciniam savarankiškumui atkurti, manualinė terapija, terapiniai pratimai, grupinės terapijos iki 8 pacientų, traumų prevencija ir pratimų programos namams.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2020 02 – 2020 03</span>
+                            <strong>Kineziterapeutas (praktika)</strong>
+                            <span class="tl-org">LR VRM Medicinos centras, Vilnius</span>
+                            <span class="tl-desc">Pacientų būklės vertinimas, individualūs planai po traumų, terapiniai pratimai ir fizioterapinės procedūros skausmui mažinti ir judesių amplitudei atkurti.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2019 06 – 2019 12</span>
+                            <strong>Masažo terapeutas</strong>
+                            <span class="tl-org">Taurakalnio sveikatos namai, Vilnius</span>
+                            <span class="tl-desc">Gydomasis masažas: švediškas, giliųjų audinių masažas, trigerinių taškų terapija ir miofascialinis atpalaidavimas.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2015 07 – 2017 03</span>
+                            <strong>Masažo terapeutas</strong>
+                            <span class="tl-org">NSW School of Massage akredituotos klinikos, Sidnėjus, Australija</span>
+                            <span class="tl-desc">Gydomojo ir sportinio masažo praktika su įvairių traumų turinčiais pacientais.</span>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="spec-section">
+                <h4><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Išsilavinimas</h4>
+                <ul class="timeline">
+                        <li>
+                            <span class="tl-date">2025 – 2027</span>
+                            <strong>Reabilitacijos mokslo magistrantūra (studijuoja)</strong>
+                            <span class="tl-org">Vilniaus universitetas</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2019 – 2023</span>
+                            <strong>Kineziterapijos bakalauras (sveikatos mokslų bakalauras)</strong>
+                            <span class="tl-org">Vilniaus universitetas, Medicinos fakultetas</span>
+                            <span class="tl-desc">Baigiamasis darbas: „Eisenos lavinimo metodai pacientams po insulto: išplėstinė literatūros apžvalga“.</span>
+                        </li>
+                        <li>
+                            <span class="tl-date">2015 – 2017</span>
+                            <strong>Gydomojo masažo diplomas (HLT52015) ir masažo terapijos IV lygio sertifikatas (HLT40312)</strong>
+                            <span class="tl-org">NSW School of Massage, Sidnėjus, Australija</span>
+                            <span class="tl-desc">Gydomasis, sportinis ir švediškas masažas, anatomija ir fiziologija, pirmoji pagalba, intensyvi praktika studentų klinikose.</span>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="spec-section">
+                <h4><i class="fa-solid fa-certificate" aria-hidden="true"></i> Kvalifikacijos kėlimas</h4>
+                <ul class="timeline">
+                        <li>
+                            <span class="tl-date">2020 02</span>
+                            <strong>Kineziologinis teipavimas</strong>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="spec-section">
+                <h4><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Darbo sritys ir metodai</h4>
+                <ul class="tag-list">
+                    <li>Traumų reabilitacija</li>
+                    <li>Neurologinė reabilitacija (po insulto)</li>
+                    <li>Kardiologinė reabilitacija</li>
+                    <li>Vaikų kineziterapija</li>
+                    <li>Manualinė terapija</li>
+                    <li>Gydomasis ir sportinis masažas</li>
+                    <li>Trigerinių taškų terapija</li>
+                    <li>Miofascialinis atpalaidavimas</li>
+                    <li>Kineziologinis teipavimas</li>
+                    <li>TENS ir EMS</li>
+                    <li>Ultragarsas</li>
+                    <li>Magnetoterapija</li>
+                    <li>Karščio ir šalčio terapija</li>
+                    <li>Kompresinė ir perkusinė terapija</li>
+                    <li>Hidroterapija</li>
+                    <li>Grupinės terapijos</li>
+                </ul>
+            </div>
+
+            <div class="spec-section">
+                <h4><i class="fa-solid fa-language" aria-hidden="true"></i> Kalbos</h4>
+                <ul class="tag-list">
+                    <li>Lietuvių – gimtoji</li>
+                    <li>Anglų – C1</li>
+                    <li>Rusų – C1</li>
+                </ul>
+            </div>
+
+            <div class="spec-actions">
+                <button class="btn-gold" onclick="closeSpecialist(); openModal();" style="justify-content: center;"><i class="fa-regular fa-calendar-check"></i> Registruotis</button>
+                <a href="https://lt.linkedin.com/in/titas-navickas-6757a986" target="_blank" rel="noopener noreferrer" class="btn-outline" style="justify-content: center;"><i class="fa-brands fa-linkedin"></i> LinkedIn profilis</a>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="bookingModal">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -577,6 +929,18 @@
         function closeModal() {
             document.getElementById('bookingModal').classList.remove('active');
         }
+        function openSpecialist() {
+            document.getElementById('specialistModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.querySelector('#specialistModal .modal-close').focus();
+        }
+        function closeSpecialist() {
+            document.getElementById('specialistModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { closeSpecialist(); closeModal(); }
+        });
         function handleBooking(e) {
             e.preventDefault();
             alert('Ačiū! Jūsų registracija gauta. Susisieksime artimiausiu metu.');
