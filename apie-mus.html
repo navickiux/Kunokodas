@@ -309,6 +309,24 @@
             font-weight: 600;
         }
 
+        .story-visual {
+            position: relative;
+        }
+
+        .story-photo {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            display: block;
+            filter: saturate(0.9);
+        }
+
+        .story-visual .quote-card {
+            margin: -90px 24px 0 24px;
+        }
+
         .quote-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
@@ -400,6 +418,200 @@
             font-size: 0.95rem;
         }
 
+        /* ---------- HELP CARDS ---------- */
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .help-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .help-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .help-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .help-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .help-card:hover .help-img img {
+            transform: scale(1.06);
+        }
+
+        .help-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 45%, rgba(19, 27, 46, 0.95) 100%);
+        }
+
+        .help-num {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 1;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #0b0f19;
+            background: var(--accent-gold);
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+
+        .help-body {
+            padding: 4px 26px 26px;
+        }
+
+        .help-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .help-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+
+        .help-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .help-tags li {
+            font-size: 0.78rem;
+            color: var(--accent-gold-light);
+            border: 1px solid var(--border-color);
+            background: rgba(212, 175, 55, 0.06);
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+            gap: 28px;
+        }
+
+        .research-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .research-meta span + span::before {
+            content: '•';
+            margin-right: 14px;
+            color: var(--text-muted);
+        }
+
+        .research-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin: 16px 0 6px;
+        }
+
+        .research-list {
+            list-style: none;
+            margin-bottom: 4px;
+        }
+
+        .research-list li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            margin-bottom: 6px;
+        }
+
+        .research-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+
+        .help-body .research-practice {
+            color: var(--text-main);
+            font-size: 0.93rem;
+            background: rgba(212, 175, 55, 0.06);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+            margin: 6px 0 18px;
+        }
+
+        .research-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.92rem;
+            border-bottom: 1px solid var(--border-glow);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+
+        .research-link:hover {
+            color: var(--accent-gold-light);
+            border-color: var(--accent-gold-light);
+        }
+
+        .research-note {
+            max-width: 760px;
+            margin: 26px auto 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .photo-credit {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 18px;
+            opacity: 0.7;
+        }
+
         /* ---------- PROCESS ---------- */
         .steps {
             display: grid;
@@ -471,33 +683,6 @@
         .info-item p {
             color: var(--text-muted);
             font-size: 0.92rem;
-        }
-
-        /* ---------- CTA ---------- */
-        .cta {
-            text-align: center;
-            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14) 0%, transparent 65%), var(--bg-card);
-            border: 1px solid var(--border-glow);
-            border-radius: var(--radius-lg);
-            padding: 55px 30px;
-        }
-
-        .cta h2 {
-            font-size: 2.1rem;
-            margin-bottom: 12px;
-        }
-
-        .cta p {
-            color: var(--text-muted);
-            max-width: 560px;
-            margin: 0 auto 28px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
         /* ---------- FOOTER ---------- */
@@ -621,6 +806,15 @@
             .page-hero h1 {
                 font-size: 2.2rem;
             }
+            .story-photo {
+                height: 300px;
+            }
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            .story-visual .quote-card {
+                margin: -60px 12px 0 12px;
+            }
         }
     </style>
 </head>
@@ -687,6 +881,8 @@
                 <p>Vizitas prasideda nuo nuodugnaus ištyrimo: vertiname laikyseną, judesius ir raumenų būklę, kad suprastume, <strong>kodėl</strong> skauda, o ne tik <strong>kur</strong>.</p>
                 <p>Nežadame stebuklų. Sąžiningai įvertiname jūsų būklę, aiškiai paaiškiname, ką matome, ir kartu sudarome realų planą.</p>
             </div>
+            <div class="story-visual">
+                <img class="story-photo" src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=1000&q=75&auto=format&fit=crop" alt="Kineziterapeutas dirba su paciento nugara" loading="lazy">
             <div class="quote-card">
                 <svg class="quote-mark" viewBox="0 0 120 120" aria-hidden="true">
                     <path d="M36 26 L14 60 L36 94 M84 26 L106 60 L84 94" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -702,37 +898,96 @@
                 <blockquote>Jūsų kūnas neturi kopijos, todėl ir jūsų kineziterapijos planas jos neturės.</blockquote>
                 <cite>Kūno kodas</cite>
             </div>
+            </div>
         </section>
 
-        <!-- Values -->
+        <!-- Research news -->
         <section>
             <div class="section-title">
-                <span class="eyebrow">Vertybės</span>
-                <h2>Kuo mes kitokie</h2>
-                <p>Sąžiningai. Nuosekliai. Tik jums.</p>
+                <span class="eyebrow">Naujovės reabilitacijoje</span>
+                <h2>Ką rodo naujausi tyrimai</h2>
+                <p>Sekame mokslą, kad mūsų darbas remtųsi įrodymais. Trumpai apie svarbius tyrimus – su nuorodomis į originalius straipsnius.</p>
             </div>
-            <div class="grid-4">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-user"></i></div>
-                    <h3>Visas dėmesys – tik jums</h3>
-                    <p>Jokių grupių ir skubėjimo. Visą vizito laiką specialistas dirba tik su jumis.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h3>Ieškome priežasties</h3>
-                    <p>Ne tik malšiname skausmą, bet ir nustatome, kas jį sukelia, kad galėtume veikti tikslingai.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>Be pažadų ir iliuzijų</h3>
-                    <p>Sakome, kaip yra: sąžiningas įvertinimas ir aiškus, realus gydymo planas.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
-                    <h3>Moksliškai pagrįsta</h3>
-                    <p>Taikome moderniais tyrimais paremtus ir laiko patikrintus metodus bei šiuolaikinę įrangą.</p>
-                </div>
+            <div class="research-grid">
+                <article class="help-card">
+                    <div class="help-img">
+                        <span class="help-num">ACL</span>
+                        <img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?w=900&q=75&auto=format&fit=crop" alt="Kelio sąnario ištyrimas" loading="lazy">
+                    </div>
+                    <div class="help-body">
+                        <div class="research-meta"><span>British Journal of Sports Medicine</span><span>2023</span><span>80 pacientų</span></div>
+                        <h3>Ar plyšęs priekinis kryžminis raištis gali sugyti be operacijos?</h3>
+                        <span class="research-label">Ką rado tyrėjai</span>
+                        <ul class="research-list">
+                            <li>Taikant „Cross Bracing Protocol“ (kelis savaites įtvaru fiksuojant kelį 90° kampu, po to – laipsniška kineziterapija), 90 % pacientų po 3 mėn. MRT matė raiščio gijimo požymių.</li>
+                            <li>Geriausiai sugijus raiščiui (1 laipsnis), į sportą grįžo 92 % pacientų, o mažiau sugijus – 62 %.</li>
+                            <li>Pakartotinė trauma ištiko 14 % tiriamųjų.</li>
+                        </ul>
+                        <span class="research-label">Ką tai reiškia praktikoje</span>
+                        <p class="research-practice">Tai naujas, dar tyrinėjamas metodas, tinkantis ne kiekvienam. Svarbiausia – greitas įvertinimas po traumos ir individualus sprendimas kartu su gydytoju.</p>
+                        <a class="research-link" href="https://pubmed.ncbi.nlm.nih.gov/37316199/" target="_blank" rel="noopener noreferrer">Skaityti straipsnį (Filbay et al., 2023) <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="help-card">
+                    <div class="help-img">
+                        <span class="help-num">Sustingęs petys</span>
+                        <img src="https://images.unsplash.com/photo-1645005512968-0c1fe99f0093?w=900&q=75&auto=format&fit=crop" alt="Peties sąnario terapija" loading="lazy">
+                    </div>
+                    <div class="help-body">
+                        <div class="research-meta"><span>Journal of Shoulder and Elbow Surgery</span><span>2025</span><span>84 pacientai</span></div>
+                        <h3>Hidrodilatacija be steroidų – nauja alternatyva sustingusiam pečiui</h3>
+                        <span class="research-label">Ką rado tyrėjai</span>
+                        <ul class="research-list">
+                            <li>Atsitiktinių imčių dvigubai aklame tyrime peties sąnario kapsulės hidrodilatacija su 5 % gliukozės tirpalu buvo palyginta su hidrodilatacija su kortikosteroidu.</li>
+                            <li>Po 12 savaičių abiejose grupėse panašiai sumažėjo skausmas ir pagerėjo judesių amplitudė bei peties funkcija.</li>
+                            <li>Gliukozės grupėje 8-ą savaitę daugiau pacientų dar vartojo nuskausminamuosius vaistus.</li>
+                        </ul>
+                        <span class="research-label">Ką tai reiškia praktikoje</span>
+                        <p class="research-practice">Procedūrą atlieka gydytojas, o kineziterapija po jos padeda išlaikyti ir didinti atgautą judesį. Tai galimas pasirinkimas tiems, kam steroidai netinka.</p>
+                        <a class="research-link" href="https://www.sciencedirect.com/science/article/pii/S1058274625004331" target="_blank" rel="noopener noreferrer">Skaityti straipsnį (Liu et al., 2025) <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="help-card">
+                    <div class="help-img">
+                        <span class="help-num">L4–L5–S1 diskas</span>
+                        <img src="https://images.unsplash.com/photo-1540205895360-4ad4cffb3aa8?w=900&q=75&auto=format&fit=crop" alt="Nugaros terapija" loading="lazy">
+                    </div>
+                    <div class="help-body">
+                        <div class="research-meta"><span>Orthopedic Reviews</span><span>2024</span><span>70 tyrimų, 2 199 pacientai</span></div>
+                        <h3>Tarpslankstelinio disko išvarža dažnai susigeria pati</h3>
+                        <span class="research-label">Ką rado tyrėjai</span>
+                        <ul class="research-list">
+                            <li>Sisteminė apžvalga parodė, kad taikant konservatyvų gydymą išvarža vidutiniškai susigėrė 76,6 % pacientų.</li>
+                            <li>Dažniausiai tai vyko per 3–6 mėnesius.</li>
+                            <li>Dažniau susigeria didesnės, iškritusios (sekvestruotos) išvaržos; mažiau tikėtina, kai yra Modic pokyčių. Pagrindinis mechanizmas – imuninė organizmo reakcija.</li>
+                        </ul>
+                        <span class="research-label">Ką tai reiškia praktikoje</span>
+                        <p class="research-practice">Daugeliu atvejų pirmas žingsnis – aktyvus konservatyvus gydymas: judėjimas, pratimai ir skausmo kontrolė, o ne skubi operacija. Įspėjamieji simptomai visada vertinami nedelsiant.</p>
+                        <a class="research-link" href="https://orthopedicreviews.openmedicalpublishing.org/article/121399-prevalence-clinical-predictors-and-mechanisms-of-resorption-in-lumbar-disc-herniation-a-systematic-review" target="_blank" rel="noopener noreferrer">Skaityti straipsnį (Xie et al., 2024) <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="help-card">
+                    <div class="help-img">
+                        <span class="help-num">Sėdimojo nervo neuralgija</span>
+                        <img src="https://images.unsplash.com/photo-1699523229208-be1e1dd9252d?w=900&q=75&auto=format&fit=crop" alt="Nugaros ir nervo terapija" loading="lazy">
+                    </div>
+                    <div class="help-body">
+                        <div class="research-meta"><span>The Journal of Pain</span><span>2025</span><span>50 tyrimų, 4 920 pacientų</span></div>
+                        <h3>Sėdimojo nervo neuralgija: pratimai kartu su nervų mobilizacija</h3>
+                        <span class="research-label">Ką rado tyrėjai</span>
+                        <ul class="research-list">
+                            <li>Tinklinė metaanalizė palygino nechirurginius lėtinės sėdimojo nervo neuralgijos (ilgiau nei 3 mėn.) gydymo būdus.</li>
+                            <li>Tarp veiksmingiausių kojos skausmui trumpuoju laikotarpiu buvo pratimai kartu su nervų mobilizacija, taip pat stuburo manipuliacijos.</li>
+                            <li>Autoriai pabrėžia, kad įrodymų patikimumas kol kas žemas ir nė vienas metodas nėra aiškiai pranašesnis.</li>
+                        </ul>
+                        <span class="research-label">Ką tai reiškia praktikoje</span>
+                        <p class="research-practice">Nervų mobilizacija – švelnūs judesiai, padedantys nervui laisviau slysti audiniuose. Ją derinant su pratimais, programa pritaikoma pagal tai, kaip reaguoja jūsų simptomai.</p>
+                        <a class="research-link" href="https://www.sciencedirect.com/science/article/pii/S1526590025006583" target="_blank" rel="noopener noreferrer">Skaityti straipsnį (Zhu et al., 2025) <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
             </div>
+            <p class="research-note">Informacija skirta susipažinti ir nepakeičia individualios specialisto konsultacijos. Kiekvieno žmogaus būklė skiriasi, todėl gydymo sprendimai priimami tik įvertinus jūsų situaciją.</p>
+            <p class="photo-credit">Nuotraukos: Unsplash</p>
         </section>
 
         <!-- Process -->
@@ -794,16 +1049,6 @@
                         <p>Jūsų automobiliui vizito metu</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta">
-            <h2>Pradėkime nuo jūsų kūno kodo</h2>
-            <p>Užsiregistruokite konsultacijai – įvertinsime jūsų būklę ir kartu sudarysime aiškų planą.</p>
-            <div class="cta-buttons">
-                <button class="btn-gold" onclick="openModal()"><i class="fa-regular fa-calendar-check"></i> Registruotis konsultacijai</button>
-                <a href="paslaugos.html" class="btn-outline">Mūsų paslaugos</a>
             </div>
         </section>
 
