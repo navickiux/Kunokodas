@@ -408,6 +408,166 @@
             outline: none;
             border-color: var(--accent-gold);
         }
+        .price-section-title {
+            text-align: center;
+            margin: 70px 0 30px;
+        }
+
+        .price-section-title h2 {
+            font-size: 2.1rem;
+            margin-bottom: 8px;
+        }
+
+        .price-section-title p {
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .plan {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .plan.featured {
+            border-color: var(--border-glow);
+            box-shadow: 0 0 30px var(--accent-gold-glow);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: #0b0f19;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .plan-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1.1;
+            margin: 6px 0 4px;
+        }
+
+        .plan-per {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .plan-save {
+            display: inline-block;
+            margin: 10px auto 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-gold-light);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border-color);
+            padding: 3px 12px;
+            border-radius: 999px;
+        }
+
+        .plan ul {
+            list-style: none;
+            text-align: left;
+            margin: 0 0 24px;
+            flex-grow: 1;
+        }
+
+        .plan li {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            padding: 7px 0 7px 26px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .plan li i {
+            position: absolute;
+            left: 0;
+            top: 11px;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+        }
+
+        .booking-info {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: rgba(212, 175, 55, 0.07);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+        }
+
+        .booking-info i {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+
+        .booking-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .booking-info strong {
+            color: var(--text-main);
+        }
+
+        .link-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+        }
+
+        .link-btn:hover {
+            color: var(--accent-gold-light);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 900px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                max-width: 440px;
+                margin: 0 auto;
+                gap: 36px;
+            }
+        }
+
+        .price-note {
+            max-width: 800px;
+            margin: 30px auto 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
@@ -457,7 +617,7 @@
     <div class="page-hero">
         <div class="container">
             <h1>Paslaugų Kainos</h1>
-            <p>Skaidrios ir aiškios reabilitacijos paslaugų kainos.</p>
+            <p>Skaidrios ir aiškios kainos – be paslėptų mokesčių. Reguliariai lankantiems siūlome abonementus.</p>
         </div>
     </div>
 
@@ -473,38 +633,118 @@
                 </thead>
                 <tbody style="color: var(--text-muted);">
                     <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Pirma kinezoterapeuto konsultacija ir ištyrimas</td>
-                        <td style="padding: 16px;">60 min.</td>
-                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">50 €</td>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Kineziterapinis ištyrimas<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Pirmas vizitas: ištyrimas, funkciniai testai ir individualus planas</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">60 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">60 €</td>
                     </tr>
                     <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Individuali kinezoterapijos treniruotė</td>
-                        <td style="padding: 16px;">50 min.</td>
-                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">45 €</td>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Kineziterapija<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Individuali kineziterapijos procedūra</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">50 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">45 €</td>
                     </tr>
                     <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Redcord Neurac terapija</td>
-                        <td style="padding: 16px;">45 min.</td>
-                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">50 €</td>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Manualinė terapija<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Sąnarių ir minkštųjų audinių mobilizacija</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">45 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">45 €</td>
                     </tr>
                     <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Gydomasis nugaros masažas</td>
-                        <td style="padding: 16px;">45 min.</td>
-                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">40 €</td>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Masažas<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Gydomasis masažas</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">40 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">40 €</td>
                     </tr>
                     <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Bendras kūno masažas</td>
-                        <td style="padding: 16px;">60 min.</td>
-                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">60 €</td>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Masažas<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Gydomasis masažas</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">60 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">55 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Relaksacinis masažas<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Atpalaiduojantis viso kūno masažas įtampai ir stresui mažinti</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">120 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">70 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Sportinis masažas<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Raumenų paruošimas krūviui ir atsigavimas po treniruočių</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">40 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">45 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Sportinis masažas<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Raumenų paruošimas krūviui ir atsigavimas po treniruočių</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">60 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">60 €</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Grįžimas į sportą<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Funkciniai testai ir etapinė programa saugiam grįžimui po traumos</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">60 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">55 €</td>
                     </tr>
                     <tr>
-                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">5 kartų kinezoterapijos abonementas</td>
-                        <td style="padding: 16px;">5 x 50 min.</td>
-                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700;">200 €</td>
+                        <td style="padding: 16px; color: var(--text-main); font-weight: 500;">Fizioterapija<span style="display:block; color: var(--text-muted); font-weight: 400; font-size: 0.85rem;">Aparatinės fizioterapijos procedūra</span></td>
+                        <td style="padding: 16px; white-space: nowrap;">20–30 min.</td>
+                        <td style="padding: 16px; text-align: right; color: var(--accent-gold); font-weight: 700; white-space: nowrap;">20 €</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <div class="price-section-title">
+            <h2>Kineziterapijos abonementai</h2>
+            <p>Rezultatui svarbiausias nuoseklumas. Abonementai skirti individualiai kineziterapijai (50 min.) ir padeda išlaikyti reguliarų gydymo procesą.</p>
+        </div>
+
+        <div class="booking-info">
+            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+            <p><strong>Abonementų vizitams būtina išankstinė rezervacija.</strong> Vizito laiką pasirinkite pagal laisvus laikus <button type="button" class="link-btn" onclick="openModal()">registracijos formoje</button>.</p>
+        </div>
+
+        <div class="plans-grid">
+            <div class="card plan">
+                <h3>5 vizitų</h3>
+                <div class="plan-price">210 €</div>
+                <div class="plan-per">42 € / vizitas</div>
+                <span class="plan-save">Sutaupote 15 €</span>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 5 × 50 min. individuali kineziterapija</li>
+                    <li><i class="fa-solid fa-check"></i> Galioja 2 mėnesius</li>
+                    <li><i class="fa-solid fa-check"></i> Vizitai – iš anksto rezervavus laiką</li>
+                    <li><i class="fa-solid fa-check"></i> Pratimų programa namams</li>
+                </ul>
+                <button class="btn-outline" onclick="openModal()" style="width: 100%; justify-content: center;">Registruotis</button>
+            </div>
+
+            <div class="card plan featured">
+                <span class="plan-badge">Populiariausias</span>
+                <h3>10 vizitų</h3>
+                <div class="plan-price">400 €</div>
+                <div class="plan-per">40 € / vizitas</div>
+                <span class="plan-save">Sutaupote 50 €</span>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 10 × 50 min. individuali kineziterapija</li>
+                    <li><i class="fa-solid fa-check"></i> Galioja 4 mėnesius</li>
+                    <li><i class="fa-solid fa-check"></i> Vizitai – iš anksto rezervavus laiką</li>
+                    <li><i class="fa-solid fa-check"></i> Pratimų programa namams</li>
+                    <li><i class="fa-solid fa-check"></i> Pakartotinis įvertinimas kurso viduryje</li>
+                </ul>
+                <button class="btn-gold" onclick="openModal()" style="width: 100%; justify-content: center;">Registruotis</button>
+            </div>
+
+            <div class="card plan">
+                <h3>Mėnesinis</h3>
+                <div class="plan-price">444 €</div>
+                <div class="plan-per">37 € / vizitas</div>
+                <span class="plan-save">Sutaupote 96 €</span>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 3 vizitai per savaitę (12 vizitų per mėnesį)</li>
+                    <li><i class="fa-solid fa-check"></i> 50 min. individuali kineziterapija</li>
+                    <li><i class="fa-solid fa-check"></i> Galioja 30 dienų</li>
+                    <li><i class="fa-solid fa-check"></i> Vizitai – iš anksto rezervavus laiką</li>
+                    <li><i class="fa-solid fa-check"></i> Intensyvi reabilitacija po traumų ir operacijų</li>
+                </ul>
+                <button class="btn-outline" onclick="openModal()" style="width: 100%; justify-content: center;">Registruotis</button>
+            </div>
+        </div>
+
+        <p class="price-note">Pirmas vizitas visada prasideda nuo kineziterapinio ištyrimo. Abonementų vizitai vyksta tik iš anksto rezervavus laiką. Abonementas yra asmeninis. Sutaupymas skaičiuojamas lyginant su vienkartinio vizito kaina (45 €).<br>
+            <strong style="color: var(--text-main);">Negalėdami atvykti, informuokite mus ne vėliau kaip prieš 24 val. iki vizito.</strong> Neatvykus ir apie tai neinformavus, vizitas laikomas įvykusiu: jis nėra perkeliamas į kitą dieną, o sumokėti pinigai negrąžinami.</p>
     </main>
 
     <footer>
@@ -542,10 +782,14 @@
                 <div class="footer-col">
                     <h4>Paslaugos</h4>
                     <ul>
-                        <li><a href="paslaugos.html">Kinezoterapija</a></li>
-                        <li><a href="paslaugos.html">Redcord Terapija</a></li>
-                        <li><a href="paslaugos.html">Masažas ir Manualinė</a></li>
-                        <li><a href="paslaugos.html">Sporto Reabilitacija</a></li>
+                        <li><a href="paslaugos.html">Kineziterapinis ištyrimas</a></li>
+                        <li><a href="paslaugos.html">Kineziterapija</a></li>
+                        <li><a href="paslaugos.html">Manualinė terapija</a></li>
+                        <li><a href="paslaugos.html">Masažas</a></li>
+                        <li><a href="paslaugos.html">Relaksacinis masažas</a></li>
+                        <li><a href="paslaugos.html">Sportinis masažas</a></li>
+                        <li><a href="paslaugos.html">Grįžimas į sportą</a></li>
+                        <li><a href="paslaugos.html">Fizioterapija</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -578,10 +822,17 @@
                 <div class="form-group">
                     <label>Paslauga</label>
                     <select class="form-control">
-                        <option>Kinezoterapeuto konsultacija</option>
-                        <option>Redcord terapija</option>
-                        <option>Gydomasis masažas</option>
+                        <option>Kineziterapinis ištyrimas</option>
+                        <option>Kineziterapija</option>
                         <option>Manualinė terapija</option>
+                        <option>Masažas</option>
+                        <option>Relaksacinis masažas (2 val.)</option>
+                        <option>Sportinis masažas</option>
+                        <option>Grįžimas į sportą</option>
+                        <option>Fizioterapija</option>
+                        <option>Abonementas – 5 vizitai</option>
+                        <option>Abonementas – 10 vizitų</option>
+                        <option>Mėnesinis abonementas (3 k./sav.)</option>
                     </select>
                 </div>
                 <div class="form-group">
